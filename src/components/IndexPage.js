@@ -32,7 +32,7 @@ function IndexPage() {
           return ( 
             <div className="movie" key={index}>
               {entry.Movie.Media.map((image) => {
-                while(image.SubType === "TV_SmallPosterImage" && entry.Order < 9) {
+                while(image.SubType === "TV_SmallPosterImage" && entry.Order < 11) {
                   return (
                     
                     <div>
@@ -43,8 +43,9 @@ function IndexPage() {
                         key={image.id}
                         alt=""
                       />
+                      <div>
                       <h4 className="movie_title">{entry.Movie.Title}</h4>
-                      
+                      </div>
                     </div>
                     
                     
