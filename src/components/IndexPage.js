@@ -12,7 +12,7 @@ function IndexPage() {
 //       .then((res) => res.json())
 //       .then((regalData) => setRegalData(regalData));
 //   }, []);
-
+   
   return (
     <MovieDiv>
       {regalData.MovieFeedEntries.map((entry, index) => {
