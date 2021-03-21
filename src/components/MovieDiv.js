@@ -22,6 +22,7 @@ const MovieDiv = styled.section`
     justify-content: space-around;
     margin: 15;
     margin-right: 25px;
+    margin-left: 10px;
     margin-top: 10px;
    
   }

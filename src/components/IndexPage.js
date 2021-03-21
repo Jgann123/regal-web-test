@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import regalData from '../Data/nowPlaying.json'
-import MovieDiv from './MovieDiv'
+import React, { useState, useEffect } from "react";
+import regalData from "../Data/nowPlaying.json";
+import MovieDiv from "./MovieDiv";
 import Container from "react-bootstrap/Container";
-
-
-
-
 
 function IndexPage() {
   const [regalDate, setRegalData] = useState([]);
@@ -13,69 +9,47 @@ function IndexPage() {
   useEffect(() => {
     let url = "/src/Data/nowPlaying.json";
     fetch(url)
-        .then(res => res.json())
-        .then(regalData => setRegalData(regalData))
-    }, []);
+      .then((res) => res.json())
+      .then((regalData) => setRegalData(regalData));
+  }, []);
 
- 
+  return (
+    <MovieDiv>
+      {regalData.MovieFeedEntries.map((entry, index) => {
+        //   console.log(entry)
 
-  
-
-  
-   
-    return (
-        
-        <MovieDiv>
-        {regalData.MovieFeedEntries.map((entry, index) => {
-          //   console.log(entry)
-       
-          return ( 
-            <div className="movie" key={index}>
-              {entry.Movie.Media.map((image) => {
-                while(image.SubType === "TV_SmallPosterImage" && entry.Order < 11) {
-                  return (
-                    
+        return (
+          <div className="movie" key={index}>
+            {entry.Movie.Media.map((image) => {
+              while (
+                image.SubType === "TV_SmallPosterImage" &&
+                entry.Order < 11
+              ) {
+                return (
+                  <div>
+                    <img
+                      id="movie2"
+                      className="movie_poster"
+                      src={image.Url}
+                      key={image.id}
+                      alt=""
+                    />
                     <div>
-                      <img
-                        id="movie2"
-                        className="movie_poster"
-                        src={image.Url}
-                        key={image.id}
-                        alt=""
-                      />
-                      <div>
                       <h4 className="movie_title">{entry.Movie.Title}</h4>
-                      </div>
                     </div>
-                    
-                    
-                  );
-                  
-                }
-                
-                
-               
-              })}
-            </div>
-        
-          );
-         
-        })}
+                  </div>
+                );
+              }
+            })}
+          </div>
+        );
+      })}
+      )
+      <Container className="container" fluid>
+        <button className="button">Show More</button>
+      </Container>
+    </MovieDiv>
+  );
+}
 
-        
-        )
-
-       
-        <Container className="container" fluid>
-        
-         <button className="button">Show More</button>
-        </Container>
-   
-    
-      </MovieDiv>
-      
-    );
-  };
-  
-
-export default IndexPage
+export default IndexPage;
