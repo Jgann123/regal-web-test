@@ -4,14 +4,14 @@ import MovieDiv from "./MovieDiv";
 import Container from "react-bootstrap/Container";
 
 function IndexPage() {
-  const [regalDate, setRegalData] = useState([]);
+//   const [regalDate, setRegalData] = useState([]);
 
-  useEffect(() => {
-    let url = "/src/Data/nowPlaying.json";
-    fetch(url)
-      .then((res) => res.json())
-      .then((regalData) => setRegalData(regalData));
-  }, []);
+//   useEffect(() => {
+//     let url = "/src/Data/nowPlaying.json";
+//     fetch(url)
+//       .then((res) => res.json())
+//       .then((regalData) => setRegalData(regalData));
+//   }, []);
 
   return (
     <MovieDiv>
