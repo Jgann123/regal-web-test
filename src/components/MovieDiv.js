@@ -4,12 +4,11 @@ const MovieDiv = styled.section`
   display: flex;
   align-items: center;
   flex: 1;
-
   background-color: #000;
   overflow: hidden;
-  width: 85%;
+  width: 95%;
   margin-top: 55px;
-  margin-left: 16%;
+ margin-left: 5%;
   flex-wrap: wrap;
 
   .movie_scroller {
